@@ -19,19 +19,19 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 
-export function LoginForm({
+export function SignupForm({
   className,
   ...props
-}: React.ComponentProps<"motionless">) {
+}: React.ComponentProps<"div">) {
   return (
-    <motionless className={cn("flex w-full flex-col gap-5", className)} {...props}>
+    <div className={cn("flex w-full flex-col gap-5", className)} {...props}>
       <Card className="login-card border-0 bg-transparent py-6 shadow-none ring-0">
         <CardHeader className="space-y-1.5 px-6 pb-2 text-center">
           <CardTitle className="font-heading text-2xl font-semibold tracking-tight">
-            Welcome back
+            Create your account
           </CardTitle>
           <CardDescription className="text-[0.925rem] leading-relaxed text-muted-foreground">
-            Sign in with Apple, Google, or your email
+            Sign up with Apple, Google, or your email
           </CardDescription>
         </CardHeader>
         <CardContent className="px-6">
@@ -45,11 +45,24 @@ export function LoginForm({
 
               <Field className="gap-4">
                 <Field className="gap-2">
-                  <FieldLabel htmlFor="email" className="text-foreground/90">
+                  <FieldLabel htmlFor="name" className="text-foreground/90">
+                    Full name
+                  </FieldLabel>
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="Alex Morgan"
+                    autoComplete="name"
+                    className="h-10 bg-input/50 px-3"
+                    required
+                  />
+                </Field>
+                <Field className="gap-2">
+                  <FieldLabel htmlFor="signup-email" className="text-foreground/90">
                     Email
                   </FieldLabel>
                   <Input
-                    id="email"
+                    id="signup-email"
                     type="email"
                     placeholder="you@company.com"
                     autoComplete="email"
@@ -58,19 +71,30 @@ export function LoginForm({
                   />
                 </Field>
                 <Field className="gap-2">
-                  <motionless className="flex items-center">
-                    <FieldLabel htmlFor="password" className="text-foreground/90">
-                      Password
-                    </FieldLabel>
-                    <a href="#" className="link-accent ml-auto text-xs font-medium">
-                      Forgot password?
-                    </a>
-                  </motionless>
+                  <FieldLabel htmlFor="signup-password" className="text-foreground/90">
+                    Password
+                  </FieldLabel>
                   <Input
-                    id="password"
+                    id="signup-password"
                     type="password"
                     placeholder="••••••••"
-                    autoComplete="current-password"
+                    autoComplete="new-password"
+                    className="h-10 bg-input/50 px-3"
+                    required
+                  />
+                </Field>
+                <Field className="gap-2">
+                  <FieldLabel
+                    htmlFor="confirm-password"
+                    className="text-foreground/90"
+                  >
+                    Confirm password
+                  </FieldLabel>
+                  <Input
+                    id="confirm-password"
+                    type="password"
+                    placeholder="••••••••"
+                    autoComplete="new-password"
                     className="h-10 bg-input/50 px-3"
                     required
                   />
@@ -83,12 +107,12 @@ export function LoginForm({
                   size="lg"
                   className="btn-login-primary h-10 w-full text-sm font-semibold"
                 >
-                  Sign in
+                  Create account
                 </Button>
                 <FieldDescription className="text-center text-[0.875rem]">
-                  Don&apos;t have an account?{" "}
-                  <Link to="/signup" className="link-accent font-medium">
-                    Create one
+                  Already have an account?{" "}
+                  <Link to="/" className="link-accent font-medium">
+                    Sign in
                   </Link>
                 </FieldDescription>
               </Field>
@@ -98,6 +122,6 @@ export function LoginForm({
       </Card>
 
       <AuthLegalFooter />
-    </motionless>
+    </div>
   )
 }
