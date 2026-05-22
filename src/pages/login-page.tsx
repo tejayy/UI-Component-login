@@ -3,7 +3,7 @@ import { LoginForm } from "@/components/login-form"
 
 export function LoginPage() {
   return (
-    <AuthLayout subtitle="Workspace sign in">
+    <AuthLayout variant="login" subtitle="Sign in to your workspace">
       <LoginForm />
     </AuthLayout>
   )

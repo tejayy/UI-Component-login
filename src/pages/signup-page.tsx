@@ -3,7 +3,7 @@ import { SignupForm } from "@/components/signup-form"
 
 export function SignupPage() {
   return (
-    <AuthLayout subtitle="Create your workspace">
+    <AuthLayout variant="signup" subtitle="Create your workspace">
       <SignupForm />
     </AuthLayout>
   )
